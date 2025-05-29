@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mengelola Emosi dengan Cara Sederhana</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffdf7;
+      padding: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fffaf0;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff7f50;
+    }
+
+    .materi {
+      margin-bottom: 40px;
+    }
+
+    .materi h2 {
+      color: #ff8c42;
+    }
+
+    .materi p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .quiz {
+      background-color: #ffe9ec;
+      border: 2px dashed #ff90a6;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .quiz h2 {
+      text-align: center;
+      color: #ff5c8a;
+    }
+
+    .quiz p {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    label {
+      display: block;
+      margin-left: 15px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      background-color: #ff5f7e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      margin: 25px auto 10px;
+    }
+
+    button:hover {
+      background-color: #ff3e66;
+    }
+
+    #hasil {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #d23e57;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌟 Mengelola Emosi dengan Cara Sederhana 🌟</h1>
+
+    <div class="materi">
+      <h2>Apa itu Mengelola Emosi?</h2>
+      <p>Mengelola emosi artinya kita bisa mengenali, memahami, dan mengendalikan perasaan kita, baik itu sedih, marah, takut, atau cemas.</p>
+      <p>Dengan mengelola emosi, kita bisa:</p>
+      <ul>
+        <li>✔️ Membuat keputusan lebih baik</li>
+        <li>✔️ Menjaga hubungan dengan orang lain</li>
+        <li>✔️ Merasa lebih tenang dan bahagia</li>
+      </ul>
+
+      <h2>Tips Sederhana Mengelola Emosi:</h2>
+      <ul>
+        <li>🌬️ Tarik napas dalam-dalam saat marah</li>
+        <li>✍️ Tulis perasaanmu di jurnal atau catatan</li>
+        <li>🚶 Jalan-jalan sebentar kalau sedang stres</li>
+        <li>🗣️ Cerita ke orang yang kamu percaya</li>
+        <li>😄 Lakukan hal-hal yang kamu suka</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <h2>🎉 Kuis Lucu: Seberapa Jago Kamu Mengelola Emosi?</h2>
+
+      <p>1. Saat kamu marah, kamu?</p>
+      <label><input type="radio" name="q1" value="a"> Ngamuk sampe gorilla pun takut 😡</label>
+      <label><input type="radio" name="q1" value="b"> Tarik napas dan pura-pura nyanyi di kepala 🎶</label>
+
+      <p>2. Saat temenmu nyebelin banget...</p>
+      <label><input type="radio" name="q2" value="a"> Balas nyebelin balik 💥</label>
+      <label><input type="radio" name="q2" value="b"> Coba ngertiin kenapa dia kayak gitu dulu 🤔</label>
+
+      <p>3. Kamu lagi sedih, apa yang kamu lakukan?</p>
+      <label><input type="radio" name="q3" value="a"> Dengerin lagu galau sambil nangis di pojokan 🎧😭</label>
+      <label><input type="radio" name="q3" value="b"> Cerita ke orang terdekat atau nulis di catatan 📓</label>
+
+      <p>4. Kalau cemas sebelum ulangan?</p>
+      <label><input type="radio" name="q4" value="a"> Panik, terus nonton TikTok sampai lupa belajar 😅</label>
+      <label><input type="radio" name="q4" value="b"> Belajar pelan-pelan sambil istirahat cukup 📘</label>
+
+      <p>5. Lagi bete, kamu biasanya?</p>
+      <label><input type="radio" name="q5" value="a"> Ngedumel sepanjang hari 🥴</label>
+      <label><input type="radio" name="q5" value="b"> Nonton video lucu atau main game biar happy 🎮</label>
+
+      <button onclick="lihatHasil()">Lihat Hasil</button>
+      <div id="hasil"></div>
+    </div>
+  </div>
+
+  <script>
+    function lihatHasil() {
+      let jawaban = [
+        document.querySelector('input[name="q1"]:checked'),
+        document.querySelector('input[name="q2"]:checked'),
+        document.querySelector('input[name="q3"]:checked'),
+        document.querySelector('input[name="q4"]:checked'),
+        document.querySelector('input[name="q5"]:checked')
+      ];
+
+      if (jawaban.includes(null)) {
+        document.getElementById("hasil").innerText = "Yuk isi semua dulu ya! 📝";
+        return;
+      }
+
+      let skor = 0;
+      jawaban.forEach((j) => {
+        if (j.value === "b") skor++;
+      });
+
+      let pesan = "";
+      if (skor === 5) {
+        pesan = "🎉 Wah, kamu jago banget ngatur emosi!~";
+      } else if (skor >= 3) {
+        pesan = "😊 Kamu udah cukup oke dalam mengelola emosi, terus latihan ya!";
+      } else {
+        pesan = "😅 Yuk belajar bareng biar makin jago atur emosi~";
+      }
+
+      document.getElementById("hasil").innerText = pesan;
+    }
+  </script>
+
+</body>
+</html>
